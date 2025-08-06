@@ -1,4 +1,4 @@
-let current_mode = 'default';
+let current_mode = 'DEFAULT';
 
 /*
 

@@ -21,10 +21,15 @@ export const loadPrompt = async () => {
     let filePath = '';
 
     switch (current_mode) {
-        case "default":
+        case "DEFAULT":
             filePath = path.join(__dirname, '../prompts/default.txt');
             break;
-        // Add other cases here if needed
+        case "AI_ONLY":
+            filePath = path.join(__dirname, '../prompts/smart.txt');
+            break;
+        case "TYURYAGA":
+            filePath = path.join(__dirname, '../prompts/tyuryaga.txt');
+            break;
     }
 
     return await readTextFile(filePath);

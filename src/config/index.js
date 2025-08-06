@@ -14,6 +14,8 @@ export const botConfig = mode === "dev" ? {
     triggers: ['витал', 'vital', '1187685558382772254', 'гуталин', 'буталин', 'оленина']
 };
 
+export const log_channel = '1216656123239731220';
+
 export const database = {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,

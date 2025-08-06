@@ -2,7 +2,7 @@ import {getCurrentHistory, setCurrentHistory} from "../utils/messages_history.js
 import {generate_response} from "../services/chatgpt.js";
 import {prepareResponse} from "../utils/prepare_response.js";
 
-export const sendAIResponse = async (history, channel) => {
+export const sendAIResponse = async (history, message) => {
     let response = await generate_response(history);
     response = prepareResponse(response);
 
@@ -16,7 +16,7 @@ export const sendAIResponse = async (history, channel) => {
 
     setCurrentHistory(new_history);
 
-    await channel.send(response);
+    await message.reply(response);
 
     return true;
 }

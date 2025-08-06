@@ -1,6 +1,7 @@
 import OpenAI from "openai";
 import { openAiToken } from "../config/index.js";
 import {loadPrompt} from "../utils/load_prompt.js";
+import { logEvent } from "../utils/logger.js";
 
 const openai = new OpenAI({
     apiKey: openAiToken
@@ -17,8 +18,6 @@ export const generate_response = async (history) => {
         name: 'Shmiklak'
     });
 
-    console.log("Generating response...")
-
     try {
         const response = await openai.chat.completions.create({
             model: "gpt-4o-mini",
@@ -27,10 +26,9 @@ export const generate_response = async (history) => {
             max_tokens: 300
         });
 
-        console.log("RESPONSE:", response.choices[0].message.content)
-
         return response.choices[0].message.content;
     } catch (error) {
         console.error("Could not generate response:", error);
+        logEvent(`Could not generate response, ${error}`);
     }
 }
