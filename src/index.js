@@ -6,6 +6,7 @@ export const Vitalina = new Bot({
         "Guilds",
         "GuildMessages",
         "MessageContent",
+        "GuildMembers"
     ]
 });
 
